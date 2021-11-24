@@ -21,7 +21,7 @@ void Rectangle::Input(double _x_A, double _y_A, double _x_B, double _y_B, double
     y_D = _y_D;
 }
 
-void Rectangle::get() // вывод данных о наших точках
+void Rectangle::Print() // вывод данных о наших точках
 {
     cout << "Вы ввели следующие координаты прямоугольника:" << endl;
     cout << " A:" << "(" << x_A << "," << y_A << ")" << endl;
@@ -42,19 +42,24 @@ int Rectangle::RectanglePerimetr() // поиск периметра, для пр
     return P;
 }
 
-void Rectangle::Square() // сравним две соседние стороны, чтобы понять является ли треугольник квадратом
+void Rectangle::Square() // сравним стороны, чтобы понять является ли прямоугольник квадратом
 {
-    a = sqrt(pow(x_B - x_A, 2) + pow(y_B - y_A, 2)); // сторона a
-    b = sqrt(pow(x_C - x_B, 2) + pow(y_C - y_B, 2)); // сторона b
+    double a = sqrt(pow(x_B - x_A, 2) + pow(y_B - y_A, 2)); // длина стороны а
+    double b = sqrt(pow(x_C - x_B, 2) + pow(y_C - y_B, 2)); // длина стороны b
+    double c = sqrt(pow(x_D - x_C, 2) + pow(y_D - y_C, 2)); // длина стороны c
+    double d = sqrt(pow(x_A - x_D, 2) + pow(y_A - y_D, 2)); // длина стороны d
 
-    if (a == b)
+    bool isSquare = false;
+
+    if (a == b == c == d)
     {
-        cout << "Прямоугольник является квадратом" << endl;
+        isSquare = 1;
     }
 
     else
     {
-        cout << "Прямоугольник не является квадратом" << endl;
+        isSquare = 0;      
     }
 
+    return isSquare; 
 }
