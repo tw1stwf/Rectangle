@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <conio.h>
 #include <stdio.h>
 #include "Header.h"
@@ -10,13 +10,22 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     Rectangle ob;
-    ob.Input(5, 5, 10, 5, 10, 10, 5, 10);
+    ob.Input(1, 3, 3, 3, 3, 5, 1, 4);
+    
     int i = ob.RectanglePerimetr();
 
     if (i < 50)
     {
-        ob.get();
-        ob.Square();
+        ob.Print();
+        if (ob.isSquare() == 0)
+        {
+            cout << "Прямоугольник не является квадратом" << endl;
+        }
+
+        else
+        {
+            cout << "Прямоугольник является квадратом" << endl;
+        }
     }
 
     else
